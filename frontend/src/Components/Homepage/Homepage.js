@@ -5,7 +5,6 @@ export const Home= styled.div`
 margin-top:20px;
 background:#012b72;
 display:flex;
-min-height:300px;
 padding:30px;`
 
 
@@ -25,6 +24,7 @@ color:white;`
 export const Flight= styled.div`
 width:70%;
 margin:auto;
+background-color:white;
 `
 
 export const Bus= styled.div`
@@ -46,4 +46,8 @@ margin-left:9px;
 
 export const Main= styled.div`
 background-color: #ebebeb;
+display:grid;
+`
+export const Container = styled.div`
+
 `
