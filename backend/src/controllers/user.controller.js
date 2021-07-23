@@ -13,6 +13,7 @@ router.post("/", async (req, res) => {
 })
 
 router.get("/", async (req, res) => {
+    console.log('bbbbbbbbbbb');
     try {
         const user = await User.find().lean().exec();
         return res.status(200).json({ data: user });
@@ -23,6 +24,7 @@ router.get("/", async (req, res) => {
 })
 
 router.get("/:id", async (req, res) => {
+    console.log('cccc');
     try {
         const user = await User.findById(req.params.id).lean().exec();
         return res.status(200).json({ data: user });

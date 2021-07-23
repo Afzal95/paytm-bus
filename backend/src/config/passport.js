@@ -20,6 +20,7 @@ passport.use(
                 token = newToken(user);
             } else {
                 user = await User.create({
+                    name:profile?._json.name,
                     email: profile?._json?.email,
                     password: uuid(),
                 });
