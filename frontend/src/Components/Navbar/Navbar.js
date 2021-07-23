@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 export const Nav = styled.div`
 width: 90%;
@@ -24,11 +25,26 @@ margin:15px;`
 
 export const Signin=styled.div`
 background-color: #00baf2;
-height:40%;
-width:10%;
-margin-top:15px;
-border-radius: 30px;
-
+display: flex;
+justify-content: space-between;
+height:25px;
+padding: 5px 5px 5px 10px;
+border-radius:10px;
+margin-top:13px;
+width:6%;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor: pointer;
+&:hover{
+    background-color: blue;
+}
+`
+export const User= styled(AccountCircleIcon)`
+color: blue;
+&:hover{
+    color: white;
+}
 `
 export const Wallet= styled.div`
 background-color: #ebebeb;
