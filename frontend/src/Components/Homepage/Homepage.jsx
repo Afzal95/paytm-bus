@@ -33,6 +33,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import TextField from '@material-ui/core/TextField';
+import Offers from "./Offers.jsx";
 
 export function Homepage() {
   return (
@@ -195,7 +196,10 @@ export function Homepage() {
             <TextField id="filled-basic" variant="filled" type="date"/>
             </form>
           </BusTick>
+          
         </Main>
+        
+        <Offers/>
         <TopRoutes />
         <div>
           <Faq />
