@@ -36,8 +36,9 @@ text-align:left;
 `
 
 export const Phone1= styled.div`
-width:2%;
+width:5%;
 display:flex;
+direction: column;
 flex-direction:column;
 padding:22px;
 margin:10px 15px;
