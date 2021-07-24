@@ -10,6 +10,13 @@ import {
   Main,
   Container,
   BusTick,
+  Imag,
+  Phone12,
+  Book,
+  Train,
+  Formlabel,
+  Sync,TransDest,Fly,Fly1
+  
 } from "./Homepage.js";
 import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
 import EmojiObjectsIcon from "@material-ui/icons/EmojiObjects";
@@ -23,10 +30,6 @@ import LocalGasStationIcon from "@material-ui/icons/LocalGasStation";
 import WifiIcon from "@material-ui/icons/Wifi";
 import LocalDrinkIcon from "@material-ui/icons/LocalDrink";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import FlightIcon from "@material-ui/icons/Flight";
-import DirectionsBusIcon from "@material-ui/icons/DirectionsBus";
-import TrainIcon from "@material-ui/icons/Train";
-import HotelIcon from "@material-ui/icons/Hotel";
 import { Faq } from "../Faq/Faq.jsx";
 import { TopRoutes } from "./TopRoutes.jsx";
 import Radio from '@material-ui/core/Radio';
@@ -143,55 +146,53 @@ export function Homepage() {
               <Bus>
                 <Phone1>
                   <Android1>
-                    {" "}
-                    <FlightIcon />{" "}
+                    <Imag src="/fli.png"/>
                   </Android1>
-                  Flight
+            <Fly >Flight </Fly>
                 </Phone1>
 
                 <Phone1>
                   <Android1>
-                    {" "}
-                    <DirectionsBusIcon />{" "}
+                   <Train src="/buss.png"/>
                   </Android1>
-                  Bus
+                <Fly>  Bus </Fly>
                 </Phone1>
 
                 <Phone1>
                   <Android1>
-                    {" "}
-                    <TrainIcon />{" "}
+                   <Train src="/train.png"/>
                   </Android1>
-                  Trains
+                 <Fly> Trains </Fly>
                 </Phone1>
-
+               
                 <Phone1>
                   <Android1>
-                    {" "}
-                    <HotelIcon />{" "}
+                  <Imag src="/hotel.png"/>
                   </Android1>
-                  Hotels
+                 <Fly> Hotels </Fly>
                 </Phone1>
 
-                <Phone1>
+                <Phone12>
                   <Android1>
-                    {" "}
-                    <FlightIcon />{" "}
+                  <Imag src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLbYWRTvPiXncDOaZlgvrp0z3tc_QZlkMw0g&usqp=CAU"/>
                   </Android1>
-                  International Flights
-                </Phone1>
+                <Fly>  International Flights</Fly>
+                </Phone12>
               </Bus>
             </Flight>{" "}
-            <div>Book Bus Tickets</div>
+            <Book><strong>Book Bus Tickets</strong></Book>
             <div >
             <RadioGroup aria-label="bus-booking" name="booktick">
+              <Formlabel>
     <FormControlLabel value="Oneway" control={<Radio />} label="Oneway" />
     <FormControlLabel value="round" control={<Radio />} label="Round Trip" />
+    </Formlabel>
   </RadioGroup>
             </div>
             <form>
-            <TextField id="filled-basic" label="Leaving from" variant="filled" />
-            <TextField id="filled-basic" label="Going to" variant="filled" />
+            <TextField id="filled-basic" label="from" variant="filled" />
+           <Sync> <TransDest/> </Sync>
+            <TextField id="filled-basic" label="to" variant="filled" />
             <TextField id="filled-basic" variant="filled" type="date"/>
             <TextField id="filled-basic" variant="filled" type="date"/>
             </form>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Nav,Img,Consumer,Company,Signin,Wallet,User} from './Navbar.js'
 import CustomizedDialogs from '../Login/Login2'
+
 export function Navbar() {
     const [open, setOpen] = React.useState(false);
     const handleClickOpen = () => {
@@ -25,7 +26,7 @@ export function Navbar() {
                     </Signin>         
         </Nav>
         <CustomizedDialogs handleClose={handleClose} open={open}/>
-        <Wallet>NO Wallet KYC Required tp pay using UPI on Paytm. Learn more.</Wallet>
+        <Wallet><strong>NO Wallet KYC Required </strong> 😊 tp pay using UPI on Paytm.<strong> Learn more.</strong></Wallet>
         </>
     )
 }
