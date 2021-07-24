@@ -43,6 +43,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {OffersCar} from "./OffersCar.jsx"
 import { styled } from "@material-ui/core/styles";
+import { Footer } from "../Footer/Footer.jsx";
 
 const Btn = styled(Button)({
   height: "45px",
@@ -262,6 +263,7 @@ export function Homepage() {
         <div>
           <Faq />
         </div>
+        <Footer/>
       </Container>
     </>
   );
