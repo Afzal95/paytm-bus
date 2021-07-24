@@ -76,7 +76,7 @@ font-weight: 400;
 `
 export const Container = styled.div`
 margin-top:0px;
-background-color: #d8d8d8!important;
+background-color: #f5f5f5!important;
 `
 export const BusTick= styled.div`
 background-color: white;

@@ -41,7 +41,7 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import Offers from "./Offers.jsx";
+import {OffersCar} from "./OffersCar.jsx"
 import { styled } from "@material-ui/core/styles";
 
 const Btn = styled(Button)({
@@ -257,8 +257,7 @@ export function Homepage() {
             </SearchBus>
           </BusTick>
         </Main>
-
-        <Offers />
+        <OffersCar />
         <TopRoutes />
         <div>
           <Faq />
