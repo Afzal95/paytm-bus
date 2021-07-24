@@ -36,6 +36,16 @@ const Input = styled.input`
 	margin-left: 3%;
 	margin-top: 1%;
 `;
+const InputAge = styled.input`
+	height: 33px;
+	width: 51.56px;
+	background-color:#ffffff;
+	padding: 1px 20px 1px 2px;
+	margin-left: 3%;
+	margin-top: 1%;
+	border: 1px solid rgb(206, 202, 202);
+
+`;
 const Select = styled.select`
 	height: 40px;
 	width: 250px;
@@ -78,9 +88,9 @@ export const TravellerInformation=()=>{
 						{/* </div> */}
 						<br />
 						{/* <div>aaaaa</div> */}
-						<div style={{display:"flex",border:"1px solid black"}}>
+						<div style={{display:"flex"}}>
 							<Input placeholder="Full Name"></Input>
-							<Input placeholder="Age"></Input>
+							<InputAge placeholder="Age"/>
 					
 							
 						</div>
@@ -105,7 +115,7 @@ export const TravellerInformation=()=>{
 					<Checkbox type="checkbox"></Checkbox>
 					I agree to all the{" "}
 					<a
-						href="https://www.abhibus.com/insterms/TATA_AIG"
+						href="https://paytm.com/about-us/our-policies/#tandc"
 						style={{ color: "#00b9f5", textDecoration: "none" }}
 					>
 						terms and conditions
