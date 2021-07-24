@@ -62,8 +62,20 @@ line-height: 0px;
 export const FareDetails=()=>{
 	const [promoCode,setPromoCode] = useState("");
 	const noOfTravellers = 2;
+	const baseFare = 3852;
+	const [discount,setDiscount] = useState(0);
+	const operatorGst = (baseFare*(9/100));
+	const total = baseFare - discount + operatorGst;
 	const promoCodeOnClick = (e) => {
 		setPromoCode(e.target.value);
+	}
+	const applyPromoCode = ()=>{
+		if(promoCode === "BUS150"){
+			setDiscount(150)
+		}
+		else if(promoCode === "BUS100"){
+			setDiscount(100)
+		}
 	}
     return(
         <FareBox>
@@ -72,30 +84,30 @@ export const FareDetails=()=>{
 			<LeftTextHeader>ONWARD FARE</LeftTextHeader>
 			<TextBox>
 			<LeftText>Base Fare ({noOfTravellers} Travellers)</LeftText>
-			<RightText>₹3852.00</RightText>
+			<RightText>₹{baseFare.toFixed(2)}</RightText>
 			</TextBox>
 			<TextBox>
 			<LeftText>Discount</LeftText>
-			<RightText>₹0</RightText>
+			<RightText>₹{discount.toFixed(2)}</RightText>
 			</TextBox>
 			<TextBox>
 			<LeftText>Operator GST</LeftText>
-			<RightText>₹184.00</RightText>
+			<RightText>₹{operatorGst.toFixed(2)}</RightText>
 			</TextBox>
 			<hr />
 			<TextBox>
 			<LeftText>Total</LeftText>
-			<RightText>₹184.00</RightText>
+			<RightText>₹{total.toFixed(2)}</RightText>
 			</TextBox>
-			<p>Awesome!! Promo code of {promoCode} is applied</p>
+			{discount!==0&&<p style={{color:"#21C17A",fontSize:"11px"}}>Awesome!! Discount of {promoCode} is applied</p>}
 			<div style={{textAlign:"left"}}>
 				<p>Promocode</p>
 				<PromoInput type="text" placeholder="Enter Promocode" value={promoCode} readOnly/>
-				<ApplyButton>Apply</ApplyButton>
+				<ApplyButton onClick={applyPromoCode}>Apply</ApplyButton>
 				<div style={{border:"1px solid black"}}>
-					<input type="radio" id="BUSRAPIDO" name="radio" value="BUSRAPIDO" onChange={promoCodeOnClick}/>
-					<label>BUSRAPIDO <br />
-					Use promocode BUSRAPIDO on bus ticket bookings and get a 30% off Rapido discount voucher
+					<input type="radio" id="BUS150" name="radio" value="BUS150" onChange={promoCodeOnClick}/>
+					<label>BUS150 <br />
+					Use promocode BUS150 on bus ticket bookings and get a 30% off Rapido discount voucher
 					</label><br />
 					<input type="radio" id="BUS100" name="radio" value="BUS100" onChange={promoCodeOnClick}/>
 					<label>BUS100 <br />
