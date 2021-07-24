@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const Container=styled.div`
-width: 90%;
-margin: auto;
+width: 87%;
+margin: 60px auto;
 `
 export const Upper= styled.div`
 display: flex;
 justify-content: space-between;
+margin-bottom: 40px;
 `
 export const AppSt=styled.div`
 display: flex;
