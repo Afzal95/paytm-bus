@@ -12,7 +12,7 @@ passport.use(
             callbackURL: "http://localhost:7001/auth/google/callback",
         },
         async function (accessToken, refreshToken, profile, done) {
-            let user = await User.findOne({ email: profile?._json?.email })
+            let user = await User.findOne({ email: profile._json.email })
                 .lean()
                 .exec();
             let token;
@@ -20,8 +20,8 @@ passport.use(
                 token = newToken(user);
             } else {
                 user = await User.create({
-                    name:profile?._json.name,
-                    email: profile?._json?.email,
+                    name:profile._json.name,
+                    email: profile._json.email,
                     password: uuid(),
                 });
                 token = newToken(user);
