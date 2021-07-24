@@ -23,25 +23,24 @@ margin-left:9px;
 color:white;`
 
 export const Flight= styled.div`
-width:100%;
+width:90%;
 margin:auto;
 background-color:white;
 margin-left: 20px;
 `
 export const TransDest = styled(SyncAltIcon)`
-margin-top: 15px;
+margin-top: 5px;
 `
 export const Bus= styled.div`
 display:flex;
-
-width: 100%;
+width: 90%;
 text-align:left;
 `
 
 export const Train= styled.img`
 width:20px;
 height:20px;
-margin-top:10px
+margin-top:10px;
 `
 export const Phone1= styled.div`
 width:20%;
@@ -50,7 +49,7 @@ margin:5px 5px;
 display:flex;
 `
 export const Phone12= styled.div`
-width:90%;
+width:70%;
 padding:10px 0px;
 margin:5px 5px;
 display:flex;
@@ -77,16 +76,16 @@ font-weight: 400;
 `
 export const Container = styled.div`
 margin-top:0px;
-
+background-color: #d8d8d8!important;
 `
 export const BusTick= styled.div`
 background-color: white;
-width:80%;
+width:90%;
 margin: auto;
 position:absolute;
-height: 80%;
+height: 300px;
 top:75%;
-left:10%;
+left:5%;
 border-radius: 10px;
 `
 export const Imag= styled.img`
@@ -109,5 +108,17 @@ export const Sync= styled.span`
 margin: 10px;
 border:1px solid black;
 border-radius:50%;
+width:30px;
+height: 30px;
 color: blue;
 padding:3px;`
+export const SearchBus= styled.div`
+display:flex;
+justify-content:space-around;
+
+`
+export const FormData= styled.div`
+display:flex;
+width: 82%;
+justify-content:space-evenly;
+`
