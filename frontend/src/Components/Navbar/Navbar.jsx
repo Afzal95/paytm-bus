@@ -1,6 +1,5 @@
 import React from 'react'
-import {Nav,Img,Consumer,Company,Signin,Wallet} from './Navbar.js'
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import {Nav,Img,Consumer,Company,Signin,Wallet,User} from './Navbar.js'
 import CustomizedDialogs from '../Login/Login2'
 export function Navbar() {
     const [open, setOpen] = React.useState(false);
@@ -21,8 +20,8 @@ export function Navbar() {
                 <Company>Career</Company>
                 </Consumer> 
                 <Signin onClick={handleClickOpen}>
-                    <span>Signin</span>
-                    <AccountCircleIcon/>
+                    <div>Sign In</div>
+                    <User/>
                     </Signin>         
         </Nav>
         <CustomizedDialogs handleClose={handleClose} open={open}/>

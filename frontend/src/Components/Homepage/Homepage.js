@@ -5,6 +5,7 @@ export const Home= styled.div`
 margin-top:20px;
 background:#012b72;
 display:flex;
+justify-content: space-between;
 padding:30px;`
 
 
@@ -29,6 +30,9 @@ background-color:white;
 
 export const Bus= styled.div`
 display:flex;
+justify-content: space-evenly;
+width: 45%;
+text-align:left;
 `
 
 export const Phone1= styled.div`
@@ -46,8 +50,18 @@ margin-left:9px;
 
 export const Main= styled.div`
 background-color: #ebebeb;
-display:grid;
+position:relative;
 `
 export const Container = styled.div`
 
+`
+export const BusTick= styled.div`
+background-color: white;
+width:80%;
+margin: auto;
+position:absolute;
+height: 80%;
+top:75%;
+left:10%;
+border-radius: 10px;
 `
