@@ -9,7 +9,6 @@ const MoreDetails = ({handleClose}) => {
 
     const handleTitle = (i) => {
 
-        console.log( i )
     }
 
     return (

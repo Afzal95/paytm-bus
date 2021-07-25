@@ -3,17 +3,13 @@ import { Seats } from './Seats';
 import seat from './AvailableSeats.module.css'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router-dom";
 
-// const initDetails = {
-//     seats: [],
-//     price : 0
-// }
 
 const AvailableSeats = () => {
-
-    const [ boarding, setBoarding ] = useState('')
-    const [ dropping, setDropping ] = useState('')
-    // const [ seatDetails, setSeatDetails ] = (initDetails)
+    const history = useHistory()
+    const [ boarding, setBoarding ] = useState('Bangalore')
+    const [ dropping, setDropping ] = useState('Hyderabad')
 
     const handleSeatDetails = () => {
 
@@ -35,7 +31,7 @@ const AvailableSeats = () => {
                         <form className={`${seat.seatForm}`}>
                             <TextField style={{marginBottom:'10px'}} value={boarding} id="standard-basic" label="Boarding Point" />
                             <TextField style={{marginBottom:'10px'}} value={dropping} id="standard-basic" label="Dropping Point" />
-                            <Button style={{marginTop:'10px'}} variant="contained" color="primary">Continue</Button>
+                            <Button style={{marginTop:'10px'}} variant="contained" color="primary" onClick={()=>history.push("/confirm-bus")}>Continue</Button>
                         </form>
                     </div>
                 </div>

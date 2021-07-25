@@ -15,7 +15,6 @@ const loginFailure = (response) => {
 };
 
 const logout = () => {
-  // console.log("ajmal")
   return {
     type: actionTypes.LOGOUT,
   };
@@ -39,8 +38,6 @@ const addCustomerMongoFailure = () => {
 };
 
 const addCustomerMongo = (profileObj) => {
-  // console.log(profileObj.name)
-  // console.log(profileObj.email)
   return async (dispatch) => {
     dispatch(addCustomerMongoRequest());
     try {
@@ -54,10 +51,8 @@ const addCustomerMongo = (profileObj) => {
         "http://localhost:8000/v1/api/users",
         customer
       );
-      console.log("response from db: ", res);
       dispatch(addCustomerMongoSuccess(res.data._id.toString()));
     } catch (err) {
-      console.log("error", err);
       dispatch(addCustomerMongoFailure());
     }
   };

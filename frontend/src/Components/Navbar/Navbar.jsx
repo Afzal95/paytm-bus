@@ -15,7 +15,6 @@ export function Navbar() {
     const [open, setOpen] = React.useState(false);
     const [menuOpen,setMenuOpen] = React.useState(false);
     const handleClickOpen = () => {
-      console.log("signin")
         setOpen(true);
       };
       const history = useHistory();
@@ -29,11 +28,8 @@ export function Navbar() {
       const handleClose = () => {
         setOpen(false);
       };
-      // const history = useHistory();
       const handleSignOut=()=>{
-        console.log("signout")
         dispatch(logout());
-        // history.push("/");
       }
       const isAuth = useSelector(
         (state) => state.authReducer.isAuth
@@ -52,9 +48,8 @@ export function Navbar() {
                 <Company>Company</Company>
                 <Company>Career</Company>
                 </Consumer> 
-                {console.log(isAuth,54,currentCustomer)}
                 <Signin onClick={!isAuth?handleClickOpen:handleSignOut} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseLeave}>
-                    {!isAuth?(<><div>Sign In</div><User/></>):(!menuOpen?<><div>Hi, {currentCustomer}</div><User/></>:<div>SignOut</div>)}
+                    {!isAuth?(<><div>Sign In</div><User/></>):(!menuOpen?<><div>Hi, Ajmal K V</div><User/></>:<div>SignOut</div>)}
                     </Signin>      
                       
         </Nav>

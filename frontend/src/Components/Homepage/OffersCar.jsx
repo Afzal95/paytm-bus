@@ -113,7 +113,6 @@ export function OffersCar() {
           <div>Use promocode:FREERIDE</div>
         </CarDiv>
       </Carousel>
-      ;
     </div>
   );
 }

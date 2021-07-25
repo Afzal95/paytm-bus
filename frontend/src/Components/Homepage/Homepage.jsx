@@ -74,7 +74,6 @@ export function Homepage() {
   }, [dispatch]);
 
   const routes = useSelector((state) => state.routesReducer.routes);
-  console.log("Routes are:", routes);
 
   const onDepartureChange = (e) => {
     let value = e.target.value;
@@ -94,9 +93,7 @@ export function Homepage() {
       let filteredSources = allSources.filter((source) =>
         source.toLowerCase().includes(value.toLowerCase())
       );
-      // console.log("Can search: ", routes.length, filteredSources);
       if (filteredSources.length > 0 && value) {
-        // console.log("hey true");
         setFilteredSources(filteredSources);
         setDisplayDepartureDropdown(true);
       } else {
@@ -323,7 +320,7 @@ export function Homepage() {
             <div>
             <TextField
                   id="filled-basic"
-                  label="From"
+                  label="To"
                   variant="outlined"
                   value={arrival}
                   onChange={onArrivalChange}
@@ -348,7 +345,6 @@ export function Homepage() {
           </div>
                 <TextField
                   id="filled-basic"
-                  // className={classes.inp}
                   variant="outlined"
                   InputLabelProps={{
                     shrink: true,
@@ -361,7 +357,6 @@ export function Homepage() {
                 />
                 <TextField
                   id="filled-basic"
-                  // className={classes.inp}
                   variant="outlined"
                   InputLabelProps={{
                     shrink: true,
@@ -373,13 +368,11 @@ export function Homepage() {
               <div>
                 <Btn
                   variant="contained"
-                  // className={classes.button}
                   color="primary"
                   onClick={() => {
                     let departureTemp = departure;
                     let arrivalTemp = arrival;
     
-                    // Sublocation 1 (Lucknow)
                     if (departureTemp.includes("(")) {
                       departureTemp = departureTemp.substring(
                         departureTemp.indexOf("(") + 1,

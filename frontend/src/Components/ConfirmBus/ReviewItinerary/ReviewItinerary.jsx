@@ -46,27 +46,27 @@ export const ReviewItinerary=()=>{
             </ReviewTitleCont>
             				
 				<ReviewDetail>
-					<p style={{width:"100px"}}>Onward <br /> 12h 50m</p>
+					<p style={{width:"100px"}}>Onward <br /> 11h 00m</p>
                     <div style={{width:"200px",lineHeight:"5px",padding:"10px"}}>
                         <div>
-                        <p style={{color:"#002e6e",fontSize:"18px",fontWeight:"600",textAlign:"left"}}>7:30PM <span style={{fontWeight:"lighter"}}>Bengaluru</span></p>
+                        <p style={{color:"#002e6e",fontSize:"18px",fontWeight:"600",textAlign:"left"}}>02:00 <span style={{fontWeight:"lighter"}}>Bengaluru</span></p>
                         </div>
                         
-                        <p style={{fontSize:"11px",color:"#909090",margin:"0px 0px 5px",textAlign:"left"}}>Sun, 25 July</p>
+                        <p style={{fontSize:"11px",color:"#909090",margin:"0px 0px 5px",textAlign:"left"}}>Mon, 26 July</p>
                         <p style={{textAlign:"left",color:"#00b9f5"}}>Change Boarding point</p>
                     </div>
                     <img src="https://drg5ie3bz46tr.cloudfront.net/travel/rtravel/assets/b303754c.png" alt="arrow" style={{width:"11px",height:"7px",margin:"30px 5px 0px"}} />
                     <div style={{width:"200px",lineHeight:"5px",padding:"10px"}}>
                         <div>
-                        <p style={{color:"#002e6e",fontSize:"18px",fontWeight:"600",textAlign:"left"}}>7:30PM <span style={{fontWeight:"lighter"}}>Bengaluru</span></p>
+                        <p style={{color:"#002e6e",fontSize:"18px",fontWeight:"600",textAlign:"left"}}>13:00 <span style={{fontWeight:"lighter"}}>Hyderabad</span></p>
                         </div>
                         
-                        <p style={{fontSize:"11px",color:"#909090",margin:"0px 0px 5px",textAlign:"left"}}>Sun, 25 July</p>
+                        <p style={{fontSize:"11px",color:"#909090",margin:"0px 0px 5px",textAlign:"left"}}>Mon, 26 July</p>
                         <p style={{textAlign:"left",color:"#00b9f5",fontSize:"13px"}}>Change Boarding point</p>
                     </div>
                     <div style={{width:"200px",lineHeight:"5px",padding:"10px",textAlign:"left"}}>
                         <p style={{color:"#002e6e",fontSize:"16px",fontWeight:"600",textAlign:"left"}}>IntrCity SmartBus W</p>
-                        <p>Seats: L11, L12, L15</p>
+                        <p>Seats: L11, L12</p>
                         <p style={{textAlign:"left",color:"#00b9f5",fontSize:"13px"}}>Cancellation Policy</p>
                     </div>
                     <div style={{padding:"14px"}}>
