@@ -1,5 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import { Radio, RadioGroup } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+	ageInput: {
+		// marginTop:"1%",
+		marginLeft:"3%",
+		width: "51.56px"
+	// 	width: 51.56px;
+	// background-color:#ffffff;
+	// padding: 1px 20px 1px 2px;
+	// margin-left: 3%;
+	// margin-top: 1%;
+	// border: 1px solid rgb(206, 202, 202);
+	},
+  }));
+
 const TravelInfoCont = styled.div`
 	width: 100%;
 	margin-top: 3%;
@@ -67,7 +85,21 @@ text-align: left;
 margin-top: 10px;
 margin-left: 10px;
 `;
+const RadioButton = styled.input`
+ z-index: 1;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+`;
+const RadioDiv = styled.div`
+padding: 0 0.45em;
+  margin: 0 20px 0 0;
+  font-size: 14px;
+`;
 export const TravellerInformation=()=>{
+	const classes = useStyles();
 	const passangers = [{id:1,seat:'A1'},{id:2,seat:'A2'}];
     return(
         <TravelInfoCont>
@@ -75,24 +107,34 @@ export const TravellerInformation=()=>{
                 <ReviewTitle>02 Traveller Information</ReviewTitle>
             </ReviewTitleCont>
 			{
-				passangers.map(item=>
+				passangers.map((item,index)=>
 					<Logindetails key={item.id} >
-						{/* <div style={{border:"1px solid black"}}> */}
-							
-							<p>Travller {item.id}</p>
-							<Select name="gender">
-								<option value="male">Male</option>
-								<option value="female">Female</option>
-							</Select>
+						<p style={{textAlign:"left"}}>Travller {item.id}</p>
+							<div style={{display:"flex"}}>
+							<RadioButton
+                      type="radio"
+                      name={"gender" + index}
+                      value="Male"
+                    />
+                    <RadioDiv>Male</RadioDiv>
+                    <RadioButton
+                      type="radio"
+                      name={"gender" + index}
+                      value="Female"
+                    />
+                    <RadioDiv>Female</RadioDiv>
 							<p>Seat {item.seat}</p>
-						{/* </div> */}
+							</div>
 						<br />
+						<div>
 						{/* <div>aaaaa</div> */}
 						<div style={{display:"flex"}}>
-							<Input placeholder="Full Name"></Input>
-							<InputAge placeholder="Age"/>
+						<TextField label="Full Name" required/>
+						<TextField label="Age" className={classes.ageInput} required/>
+							{/* <Input placeholder="Full Name"></Input> */}
+							{/* <InputAge placeholder="Age"/> */}
 					
-							
+							</div>
 						</div>
 					
 				</Logindetails>
