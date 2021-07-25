@@ -6,15 +6,17 @@ export const Home= styled.div`
 background:#012b72;
 display:flex;
 justify-content: space-between;
-padding:0.2% 6% 5% 6%;`
+padding:0.2% 6% 5% 6%;
+`
 
 
 export const Phone= styled.div`
 width:2%;
+font-size: 12px;
 display:flex;
 flex-direction:column;
 padding:22px;
-margin:10px 15px;
+margin:4px 0px 0px;
 color:white;`
 
 
@@ -75,8 +77,9 @@ font-weight: 400;
 
 `
 export const Container = styled.div`
-margin-top:0px;
+margin-top:37px;
 background-color: #f5f5f5!important;
+
 `
 export const BusTick= styled.div`
 background-color: white;
