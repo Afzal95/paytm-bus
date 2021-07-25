@@ -8,6 +8,7 @@ const Img = styled.img`
   height: 150px;
 `;
 const CarDiv = styled.div`
+z-index: 1;
   border: 1px solid black;
   width: 280px;
   border-radius: 10px;
