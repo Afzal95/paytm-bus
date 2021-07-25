@@ -43,6 +43,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {OffersCar} from "./OffersCar.jsx"
 import { styled } from "@material-ui/core/styles";
+import { useHistory } from "react-router";
 
 const Btn = styled(Button)({
   height: "45px",
@@ -50,6 +51,7 @@ const Btn = styled(Button)({
 });
 
 export function Homepage() {
+  const history = useHistory()
   return (
     <>
       <Container>
@@ -250,6 +252,7 @@ export function Homepage() {
                   variant="contained"
                   // className={classes.button}
                   color="primary"
+                  onClick={()=>history.push("/search")}
                 >
                   Search
                 </Btn>

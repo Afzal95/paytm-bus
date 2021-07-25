@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
 const FareBox = styled.div`
@@ -85,6 +86,7 @@ export const FareDetails=()=>{
 	const noOfTravellers = 2;
 	const baseFare = 3852;
 	const [discount,setDiscount] = useState(0);
+	const history = useHistory();
 	const operatorGst = (baseFare*(9/100));
 	const total = baseFare - discount + operatorGst;
 	const promoCodeOnClick = (e) => {
@@ -138,7 +140,7 @@ export const FareDetails=()=>{
 						{/* </input> */}
 				</div>
 			</div>
-			<ProceedButton>Proceed to pay</ProceedButton>
+			<ProceedButton onClick={()=>history.push("/payment-page")}>Proceed to pay</ProceedButton>
         </FareBox>
     )
 }
