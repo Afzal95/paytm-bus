@@ -3,6 +3,7 @@
 .wrapper {
     font-family: sans-serif;
     box-sizing: border-box;
+    /* border: 1px solid black; */
 }
 
 /* Titles */
@@ -28,10 +29,18 @@
     font-weight: 600;
     padding: 15px 0;
     margin: 0 20px;
+    cursor: pointer;
 }
 
 .closeBtn {
     display: flex;
     justify-content: right;
     align-items: center;
+}
+
+.contentWrapper {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 25px;
+    /* background-color: red; */
 }

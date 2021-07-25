@@ -1,6 +1,7 @@
 
 import md from './MoreDetails.module.css'
 import CloseIcon from '@material-ui/icons/Close';
+import { AvailableSeats } from './sections/availableSeats/AvailableSeats';
 
 const titles = [ 'Reviews', 'Amenities', 'Boarding & Dropping Point', 'Cancellation Policy', 'Available Seats' ]
 
@@ -22,9 +23,11 @@ const MoreDetails = ({handleClose}) => {
                     }
                 </div>
                 <div className={`${md.closeBtn}`}>
-                    <CloseIcon onClick={()=>{handleClose()}} style={{fontSize:'18px'}} />
+                    <CloseIcon onClick={()=>{handleClose()}} style={{fontSize:'18px', cursor:'pointer'}} />
                 </div>
-                
+            </div>
+            <div className={`${md.contentWrapper}`}>
+                <AvailableSeats />
             </div>
         </div>
     )
