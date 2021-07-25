@@ -12,7 +12,7 @@ function App() {
       <Homepage/> */}
       {/* <Payment /> */}
       <BusBookingAndFilters />
-     
+
     </div>
   );
 }

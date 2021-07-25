@@ -34,14 +34,18 @@ const amenities = [
 
 const BookingCard = () => {
 
-    const [ toggleDetails, setToggleDetails ] = useState( false )
+    const [ toggleDetails, setToggleDetails ] = useState( true )
 
     const handleDetails = (i) => {
         console.log( i )
     }
 
     const handleClose = () => {
-        setToggleDetails( !toggleDetails )
+        setToggleDetails( true )
+    }
+
+    const handleToggle = () => {
+        setToggleDetails( false )
     }
 
     return (
@@ -73,7 +77,9 @@ const BookingCard = () => {
                     <h5 style={{fontSize:'18px', fontWeight:'400'}}>₹ 1,279</h5>
                 </div>
                 <div>
-                    <Button variant="outlined" color="primary">Select Seats</Button>
+                    <div onClick={handleToggle}>
+                    <Button  variant="contained" color="primary">Select Seats</Button>
+                    </div>
                     <h5 className={`${crd.noOfSeats}`}>10 Seats Available</h5>
                 </div>
            </div>
@@ -101,9 +107,9 @@ const BookingCard = () => {
                         <DotIcon className={crd.odDot} style={{fontSize: '5px', fontWeight:'600'}}/>
                         <span onClick={()=>{handleDetails(3)}}>Cancellation Policy</span>
                     </div> :
-                    <MoreDetails handleClose={handleClose} />
+                    <MoreDetails handleClose={handleClose} /> 
                 }
-            </div>
+            </div> 
        </div>
     )
 }
