@@ -8,10 +8,10 @@ import { BusBookingAndFilters } from "./Components/BusBooking&Filters/BusBooking
 function App() {
   return (
     <div className="App">
-      {/* <Navbar/>
-      <Homepage/> */}
-      {/* <Payment /> */}
-      <BusBookingAndFilters />
+      {/* <Navbar/> */}
+      <Homepage/>
+      {/* <Payment />
+      <BusBookingAndFilters /> */}
      
     </div>
   );
