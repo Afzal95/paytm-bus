@@ -49,3 +49,4 @@ color: blue;
 export const Wallet= styled.div`
 background-color: #ebebeb;
 padding:17px;`
+

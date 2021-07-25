@@ -1,0 +1,21 @@
+.iconDiv {
+  display: flex;
+  width: 100px;
+  height: 60px;
+  margin-left: 17%;
+  margin-top: 25px;
+}
+.firstDiv {
+  /* border: 1px solid red; */
+  width: 70%;
+  height: 150px;
+  margin: 0 auto;
+  /* padding-bottom: 30px; */
+  background-color: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.goBack {
+  display: flex;
+  margin-left: 25px;
+}
