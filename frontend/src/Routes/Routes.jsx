@@ -14,7 +14,7 @@ const Routes = () => {
         <Navbar />
           <Homepage />
         </Route>
-        <Route path="/search/confirm-bus" exact>
+        <Route path="/confirm-bus" exact>
         <Navbar />
           <ConfirmBus />
         </Route>

@@ -96,7 +96,7 @@ export function Homepage() {
       );
       // console.log("Can search: ", routes.length, filteredSources);
       if (filteredSources.length > 0 && value) {
-        console.log("hey true");
+        // console.log("hey true");
         setFilteredSources(filteredSources);
         setDisplayDepartureDropdown(true);
       } else {
@@ -301,7 +301,7 @@ export function Homepage() {
             </div>
             {displayDepartureDropdown ? (
               <div className={styles.departureDd}>
-                <ul style={{listStyleType:"none"}}>
+                <ul style={{listStyleType:"none",textAlign:"left"}}>
                   {filteredSources.map((source) => (
                     <li
                       onClick={() => {
@@ -331,7 +331,7 @@ export function Homepage() {
             </div>
             {displayArrivalDropdown ? (
               <div className={styles.arrivalDd}>
-                <ul style={{listStyleType:"none"}}>
+                <ul style={{listStyleType:"none",textAlign:"left"}}>
                   {filteredDestinations.map((destination) => (
                     <li
                       onClick={() => {

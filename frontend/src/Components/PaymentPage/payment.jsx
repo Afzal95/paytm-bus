@@ -3,7 +3,11 @@ import { useState } from "react";
 import styles from "./Payment.module.css";
 import { TextField } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-
+import StripeCheckout from "react-stripe-checkout";
+import React from 'react';
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 function Payment(){
 
     const [credit,setCredit] = useState(false);
@@ -27,6 +31,106 @@ function Payment(){
             setUpi(true);
         }
     }
+    
+    const passSeatsArray = useSelector((state) => state.busDetailsReducer.seats);
+    const passFare = useSelector((state) => state.busDetailsReducer.fare);
+    const passDepartDetails = useSelector(
+      (state) => state.busDetailsReducer.departureDetails
+    );
+    const passArrivalDetails = useSelector(
+      (state) => state.busDetailsReducer.arrivalDetails
+    );
+  
+    const currentCustomer = useSelector(
+      (state) => state.authReducer.currentCustomer
+    );
+    // console.log("Current Customer is: ", currentCustomer);
+    const operatorName = useSelector(
+      (state) => state.busDetailsReducer.operatorName
+    );
+    const passengerDetails = useSelector(
+      (state) => state.busDetailsReducer.passengerDetails
+    );
+    // console.log("here passenger details:", passengerDetails);
+    const email = useSelector((state) => state.busDetailsReducer.email);
+    const fare = useSelector((state) => state.busDetailsReducer.fare);
+    const busId = useSelector((state) => state.busDetailsReducer.busId);
+    const phoneNumber = useSelector(
+      (state) => state.busDetailsReducer.phoneNumber
+    );
+    const departureDetails = useSelector(
+      (state) => state.busDetailsReducer.departureDetails
+    );
+    const arrivalDetails = useSelector(
+      (state) => state.busDetailsReducer.arrivalDetails
+    );
+    const duration = useSelector((state) => state.busDetailsReducer.duration);
+    const isBusinessTravel = useSelector(
+      (state) => state.busDetailsReducer.isBusinessTravel
+    );
+    const isInsurance = useSelector(
+      (state) => state.busDetailsReducer.isInsurance
+    );
+    const isCovidDonated = useSelector(
+      (state) => state.busDetailsReducer.isCovidDonated
+    );
+    const [product] = React.useState({
+      name: "React from facebook",
+      price: 10,
+      productBy: "Facebook",
+    });
+    const history = useHistory();
+
+    const makePayment = async (token) => {
+        // console.log("85")
+        let myBooking = {};
+        myBooking.customerId = currentCustomer._id;
+        myBooking.passengerDetails = passengerDetails;
+        myBooking.email = email;
+        myBooking.phoneNumber = phoneNumber;
+        myBooking.fare = fare;
+        myBooking.busId = busId;
+        let date = new Date();
+        myBooking.bookingDate =
+          date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+        myBooking.seats = passSeatsArray;
+        myBooking.departureDetails = departureDetails;
+        myBooking.arrivalDetails = arrivalDetails;
+        myBooking.duration = duration;
+        
+        try {
+            
+          let res = await axios.post(
+            "http://localhost:8000/v1/api/booking",
+            myBooking
+          );
+          console.log("Booking post response: ", res.data);
+        } catch (err) {
+          console.log("Error while adding booking to booking collection!", err);
+        }
+    
+        const body = {
+          token,
+          product,
+        };
+        const headers = {
+          "Content-Type": "application/json",
+        };
+        return fetch("http://localhost:8000/v1/api/stripe-payments", {
+          method: "POST",
+          headers,
+          body: JSON.stringify(body),
+        })
+          .then((res) => {
+            history.push("/");
+          })
+          .catch((err) => {
+            console.log("Error while making payment", err);
+            alert(
+              "Something went wrong while making payment! Check Internet connection!"
+            );
+          });
+      };
 
     return <div style={{paddingBottom:"180px"}}>
     <div className={styles.iconDiv}>
@@ -53,10 +157,21 @@ function Payment(){
         <div className={styles.goBack}>
             SELECT AN OPTION TO PAY
         </div>
-        <div style={{display:"flex",marginLeft:"20px",justifyContent:"space-between",marginRight:"20px"}}>
+        <div className={styles.Payment__stripe}>
+              <StripeCheckout
+                stripeKey="pk_test_51JH6eGSAl9m1aS0XG1Ua9TAB76Whu5WXV6bK6bfUWoR5EpyDml5sDT5u5RiY7GlRC2Lw8wHhCYaW9h3cyrbtgoLE003A4x4HcW"
+                token={makePayment}
+                name="Paytm Bus Booking"
+              >
+                <button className={styles.Payment__stripe__button}>
+                  Pay With Stripe
+                </button>
+              </StripeCheckout>
+            </div>
+        <div style={{display:"flex",marginLeft:"20px",justifyContent:"space-between",marginRight:"20px",lineHeight:"12px"}}>
         <div style={{display:"flex",justifyContent:"space-between",width:"160px"}}>
-        <div style={{width:"20px",height:"20px",marginTop:"-4px"}}><input disabled type="checkbox" style={{marginTop:"20px",fontSize:"20px",width:"100%",height:"100%"}} /></div>
-        <p>Paytm Balance<br/><span style={{marginLeft:"5px",fontSize:"13px"}}>Available balance 0</span><br/></p>
+        {/* <div style={{width:"20px",height:"20px",marginTop:"-4px"}}><input disabled type="checkbox" style={{marginTop:"20px",fontSize:"20px",width:"100%",height:"100%"}} /></div> */}
+        {/* <p>Paytm Balance<br/><span style={{marginLeft:"5px",fontSize:"13px"}}>Available balance 0</span><br/></p> */}
         </div>
         {/* {show && <div>
         <button style={{width:"190px",border:"none",cursor:"pointer",height:"50px",padding:"10px",color:"white",backgroundColor:"#34c9c9"}}>PAY 799Rs</button>
