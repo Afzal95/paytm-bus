@@ -90,13 +90,15 @@ const RadioButton = styled.input`
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  margin-right: 10px;
+  margin-left: 10px;
   cursor: pointer;
+  margin-top: 19px;
 `;
 const RadioDiv = styled.div`
 padding: 0 0.45em;
-  margin: 0 20px 0 0;
   font-size: 14px;
+  margin-left: 10px;
+  margin-top: 19px;
 `;
 export const TravellerInformation=()=>{
 	const classes = useStyles();
@@ -110,7 +112,7 @@ export const TravellerInformation=()=>{
 				passangers.map((item,index)=>
 					<Logindetails key={item.id} >
 						<p style={{textAlign:"left"}}>Travller {item.id}</p>
-							<div style={{display:"flex"}}>
+							<div style={{display:"flex",marginTop:"35px",marginLeft:"-70px"}}>
 							<RadioButton
                       type="radio"
                       name={"gender" + index}
@@ -123,17 +125,17 @@ export const TravellerInformation=()=>{
                       value="Female"
                     />
                     <RadioDiv>Female</RadioDiv>
-							<p>Seat {item.seat}</p>
 							</div>
 						<br />
 						<div>
 						{/* <div>aaaaa</div> */}
-						<div style={{display:"flex"}}>
+						<div style={{display:"flex",marginTop:"27px",marginLeft:"20px"}}>
 						<TextField label="Full Name" required/>
 						<TextField label="Age" className={classes.ageInput} required/>
 							{/* <Input placeholder="Full Name"></Input> */}
 							{/* <InputAge placeholder="Age"/> */}
 					
+							<p>Seat {item.seat}</p>
 							</div>
 						</div>
 					
@@ -141,18 +143,19 @@ export const TravellerInformation=()=>{
 					)
 			}
 				
+				<div style={{textAlign:"left"}}>
 				<Para>
 				Contact Information
 
 				</Para>
-				<p>Your ticket and PNR Info will be sent to these.</p>
-				<Logindetails>
+				<p style={{marginLeft:"25px"}}>Your ticket and PNR Info will be sent to these.</p>
+				<Logindetails style={{marginLeft:"-5px"}}>
 					<Input placeholder="Email ID"></Input>
 					<Input placeholder="Mobile No."></Input>
 				</Logindetails>
-			<br />
+			{/* <br /> */}
 			
-			<br />
+			{/* <br /> */}
 				<Para>
 					<Checkbox type="checkbox"></Checkbox>
 					I agree to all the{" "}
@@ -164,6 +167,8 @@ export const TravellerInformation=()=>{
 					</a>
 				</Para>
 			<br />
+			
+			</div>
         </TravelInfoCont>
     )
 }
