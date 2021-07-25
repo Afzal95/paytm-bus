@@ -323,7 +323,7 @@ export function Homepage() {
             <div>
             <TextField
                   id="filled-basic"
-                  label="From"
+                  label="To"
                   variant="outlined"
                   value={arrival}
                   onChange={onArrivalChange}

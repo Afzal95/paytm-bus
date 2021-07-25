@@ -54,7 +54,7 @@ export function Navbar() {
                 </Consumer> 
                 {console.log(isAuth,54,currentCustomer)}
                 <Signin onClick={!isAuth?handleClickOpen:handleSignOut} onMouseEnter={handleMouseOver} onMouseLeave={handleMouseLeave}>
-                    {!isAuth?(<><div>Sign In</div><User/></>):(!menuOpen?<><div>Hi, {currentCustomer}</div><User/></>:<div>SignOut</div>)}
+                    {!isAuth?(<><div>Sign In</div><User/></>):(!menuOpen?<><div>Hi, Ajmal K V</div><User/></>:<div>SignOut</div>)}
                     </Signin>      
                       
         </Nav>

@@ -82,54 +82,55 @@ function Payment(){
     const history = useHistory();
 
     const makePayment = async (token) => {
-        // console.log("85")
-        let myBooking = {};
-        myBooking.customerId = currentCustomer._id;
-        myBooking.passengerDetails = passengerDetails;
-        myBooking.email = email;
-        myBooking.phoneNumber = phoneNumber;
-        myBooking.fare = fare;
-        myBooking.busId = busId;
-        let date = new Date();
-        myBooking.bookingDate =
-          date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
-        myBooking.seats = passSeatsArray;
-        myBooking.departureDetails = departureDetails;
-        myBooking.arrivalDetails = arrivalDetails;
-        myBooking.duration = duration;
+      history.push("/")
+      // // console.log("85")
+        // let myBooking = {};
+        // myBooking.customerId = currentCustomer._id;
+        // myBooking.passengerDetails = passengerDetails;
+        // myBooking.email = email;
+        // myBooking.phoneNumber = phoneNumber;
+        // myBooking.fare = fare;
+        // myBooking.busId = busId;
+        // let date = new Date();
+        // myBooking.bookingDate =
+        //   date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+        // myBooking.seats = passSeatsArray;
+        // myBooking.departureDetails = departureDetails;
+        // myBooking.arrivalDetails = arrivalDetails;
+        // myBooking.duration = duration;
         
-        try {
+        // try {
             
-          let res = await axios.post(
-            "http://localhost:8000/v1/api/booking",
-            myBooking
-          );
-          console.log("Booking post response: ", res.data);
-        } catch (err) {
-          console.log("Error while adding booking to booking collection!", err);
-        }
+        //   let res = await axios.post(
+        //     "http://localhost:8000/v1/api/booking",
+        //     myBooking
+        //   );
+        //   console.log("Booking post response: ", res.data);
+        // } catch (err) {
+        //   console.log("Error while adding booking to booking collection!", err);
+        // }
     
-        const body = {
-          token,
-          product,
-        };
-        const headers = {
-          "Content-Type": "application/json",
-        };
-        return fetch("http://localhost:8000/v1/api/stripe-payments", {
-          method: "POST",
-          headers,
-          body: JSON.stringify(body),
-        })
-          .then((res) => {
-            history.push("/");
-          })
-          .catch((err) => {
-            console.log("Error while making payment", err);
-            alert(
-              "Something went wrong while making payment! Check Internet connection!"
-            );
-          });
+        // const body = {
+        //   token,
+        //   product,
+        // };
+        // const headers = {
+        //   "Content-Type": "application/json",
+        // };
+        // return fetch("http://localhost:8000/v1/api/stripe-payments", {
+        //   method: "POST",
+        //   headers,
+        //   body: JSON.stringify(body),
+        // })
+        //   .then((res) => {
+        //     history.push("/");
+        //   })
+        //   .catch((err) => {
+        //     console.log("Error while making payment", err);
+        //     alert(
+        //       "Something went wrong while making payment! Check Internet connection!"
+        //     );
+        //   });
       };
 
     return <div style={{paddingBottom:"180px"}}>
@@ -149,7 +150,7 @@ function Payment(){
         </div>
         <div>
         <p style={{marginBottom:"-10px"}}>Amount to be paid</p>
-        <h3>Rs799</h3>
+        <h3>Rs663</h3>
         </div>
         </div>
     </div>
@@ -174,7 +175,7 @@ function Payment(){
         {/* <p>Paytm Balance<br/><span style={{marginLeft:"5px",fontSize:"13px"}}>Available balance 0</span><br/></p> */}
         </div>
         {/* {show && <div>
-        <button style={{width:"190px",border:"none",cursor:"pointer",height:"50px",padding:"10px",color:"white",backgroundColor:"#34c9c9"}}>PAY 799Rs</button>
+        <button style={{width:"190px",border:"none",cursor:"pointer",height:"50px",padding:"10px",color:"white",backgroundColor:"#34c9c9"}}>PAY 663Rs</button>
         </div>} */}
         </div>
     </div>
@@ -189,7 +190,7 @@ function Payment(){
         <TextField style={{width:"300px"}} id="outlined-basic" label="card no" type="number" variant="outlined" />
         <TextField style={{width:"140px",marginLeft:"20px"}} id="outlined-basic" label="card expiry date" type="number" placeholder="MM/YY" variant="outlined" />
         <TextField style={{width:"140px",marginLeft:"20px"}} id="outlined-basic" label="CVV" type="number" placeholder="CVV" variant="outlined" />
-        <Button variant="contained" size="large" style={{backgroundColor:"#34c9c9",width:"200px",marginLeft:"20px"}} >Pay 799</Button>
+        <Button variant="contained" size="large" style={{backgroundColor:"#34c9c9",width:"200px",marginLeft:"20px"}} >Pay 663</Button>
         </div>}
         <div style={{width:"160px",marginTop:"50px"}}>
                 <input style={{height:"20px",width:"20px",marginLeft:"15px"}} type="radio" value="debit" name="method" onChange={handle} /> <span style={{marginLeft:"20px"}}>&nbsp;</span> Debit Card
@@ -198,7 +199,7 @@ function Payment(){
         <TextField style={{width:"300px"}} id="outlined-basic" label="card no" type="number" variant="outlined" />
         <TextField style={{width:"140px",marginLeft:"20px"}} id="outlined-basic" label="card expiry date" type="number" placeholder="MM/YY" variant="outlined" />
         <TextField style={{width:"140px",marginLeft:"20px"}} id="outlined-basic" label="CVV" type="number" placeholder="CVV" variant="outlined" />
-        <Button variant="contained" size="large" style={{backgroundColor:"#34c9c9",width:"200px",marginLeft:"20px"}} >Pay 799</Button>
+        <Button variant="contained" size="large" style={{backgroundColor:"#34c9c9",width:"200px",marginLeft:"20px"}} >Pay 663</Button>
         </div>}
         <div style={{width:"160px",marginTop:"50px",marginLeft:"-20px"}}>
                 <input style={{height:"20px",width:"20px"}} type="radio" value="upi" name="method" onChange={handle} /> <span style={{marginLeft:"30px"}}></span> UPI
@@ -206,7 +207,7 @@ function Payment(){
         {UPI && <div style={{display:"flex",marginTop:"20px",marginLeft:"80px",paddingBottom:"50px",backgroundColor:"#f3f7f8"}}>
         <TextField onChange={e=>setUpiId(false)} style={{width:"300px"}} id="outlined-basic" label="UPI Id" placeholder="Enter UPI Id" type="text" variant="outlined" />
         <TextField disabled={UpiId} style={{width:"140px",marginLeft:"20px"}} id="outlined-basic" label="OTP" type="number" placeholder="enter otp" variant="outlined" />
-        <Button variant="contained" size="large" style={{backgroundColor:"#34c9c9",width:"200px",marginLeft:"20px"}} >Pay 799</Button>
+        <Button variant="contained" size="large" style={{backgroundColor:"#34c9c9",width:"200px",marginLeft:"20px"}} >Pay 663</Button>
         </div> }
     </div>
     

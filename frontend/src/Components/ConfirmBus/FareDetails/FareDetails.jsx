@@ -84,7 +84,7 @@ margin-top: -5px;
 export const FareDetails=()=>{
 	const [promoCode,setPromoCode] = useState("");
 	const noOfTravellers = 2;
-	const baseFare = 3852;
+	const baseFare = 700;
 	const [discount,setDiscount] = useState(0);
 	const history = useHistory();
 	const operatorGst = (baseFare*(9/100));

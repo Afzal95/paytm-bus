@@ -102,7 +102,7 @@ padding: 0 0.45em;
 `;
 export const TravellerInformation=()=>{
 	const classes = useStyles();
-	const passangers = [{id:1,seat:'A1'},{id:2,seat:'A2'}];
+	const passangers = [{id:1,seat:'L11'},{id:2,seat:'L12'}];
     return(
         <TravelInfoCont>
             <ReviewTitleCont>
