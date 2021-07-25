@@ -5,6 +5,7 @@ import { ConfirmBus } from "../Components/ConfirmBus/ConfirmBus";
 import { BookingCard } from "../Components/BusBooking&Filters/BookingCard/BookingCard.jsx";
 import { Payment } from "../Components/PaymentPage/payment.jsx";
 import {Navbar} from "../Components/Navbar/Navbar.jsx"
+import { BusBookingAndFilters } from "../Components/BusBooking&Filters/BusBookingAndFilters.jsx";
 const Routes = () => {
   return (
     <>
@@ -19,7 +20,8 @@ const Routes = () => {
         </Route>
         <Route path="/search" exact>
         <Navbar />
-          <BookingCard />
+        <BusBookingAndFilters/>
+          {/* <BookingCard /> */}
         </Route>
         <Route path="/payment-page" exact>
           <Payment />

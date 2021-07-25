@@ -84,9 +84,9 @@ export default function CustomizedDialogs({handleClose,open}) {
     
     const history = useHistory();
     const googleAuthClick = ()=>{
-        history.push("http://localhost:8000/auth/google/")
+        history.push("/auth/google")
         // alert("google");
-    }
+}
   return (
     <div>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
