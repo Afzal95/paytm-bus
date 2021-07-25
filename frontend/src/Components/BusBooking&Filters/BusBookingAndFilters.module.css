@@ -1,5 +1,4 @@
 .cont {
-
     padding: 0 3%;
     display: grid;
     grid-template-columns: 25% 73%;
@@ -13,4 +12,3 @@
     /* border: 1px solid #e3e6e6; */
     /* height: 500px; */
 }
-
