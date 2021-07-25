@@ -8,8 +8,10 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-import GoogleButton from 'react-google-button'
+// import GoogleButton from 'react-google-button'
+import { GoogleLogin } from "react-google-login";
 import { useHistory } from 'react-router';
+import { loadData, saveData } from "../../Utils/localStorage";
 import {
     Container,
     BenefitsCont,
@@ -17,7 +19,14 @@ import {
     HeaderText,
     BenefitText,BenefitItem,BlueBox,ContainerBox
   } from "./Styles";
-
+  import { useSelector, useDispatch } from "react-redux";
+import {
+  loginSuccess,
+  loginFailure,
+  logout,
+  addCustomerMongo,
+} from "../../Redux/auth/actions";
+import {Redirect} from 'react-router-dom'
 const styles = (theme) => ({
   root: {
     margin: 0,
@@ -83,11 +92,23 @@ const DialogTitle = withStyles(styles)((props) => {
 export default function CustomizedDialogs({handleClose,open}) {
     
     const history = useHistory();
-    const googleAuthClick = ()=>{
-        history.push("/auth/google")
-        // alert("google");
-}
-  return (
+    
+    const dispatch = useDispatch();
+    React.useEffect(()=>{
+      dispatch(logout());
+    },[])
+    const currentCustomer = useSelector(
+      (state) => state.authReducer.currentCustomer
+    );
+    const isAuth = useSelector(
+      (state) => state.authReducer.isAuth
+    );
+    const isLoggedIn = useSelector(
+      (state) => state.authReducer.isLoggedIn
+    );
+    
+    console.log()
+  return !isAuth?(
     <div>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
       
@@ -104,7 +125,17 @@ export default function CustomizedDialogs({handleClose,open}) {
       <LoginCont>
       <DialogTitle id="customized-dialog-title" onClose={handleClose}>
         </DialogTitle>
-        <GoogleButton onClick={() => googleAuthClick()}/>
+        <GoogleLogin
+                      clientId="493530183469-naj3i844vuh8ru5usav057k5kuabc3iq.apps.googleusercontent.com"
+                      onSuccess={(response) => {
+                        
+                        dispatch(loginSuccess(response));
+                        dispatch(addCustomerMongo(response.profileObj));
+                      }}
+                      onFailure={(response) => {
+                        dispatch(loginFailure(response));
+                      }}
+                    />
       </LoginCont>
     </Container>
         <DialogActions>
@@ -113,5 +144,5 @@ export default function CustomizedDialogs({handleClose,open}) {
         </DialogActions>
       </Dialog>
     </div>
-  );
+  ):<Redirect to={history.push("/")}/>;
 }

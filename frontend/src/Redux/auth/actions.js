@@ -15,6 +15,7 @@ const loginFailure = (response) => {
 };
 
 const logout = () => {
+  console.log("ajmal")
   return {
     type: actionTypes.LOGOUT,
   };
@@ -38,6 +39,8 @@ const addCustomerMongoFailure = () => {
 };
 
 const addCustomerMongo = (profileObj) => {
+  console.log(profileObj.name)
+  console.log(profileObj.email)
   return async (dispatch) => {
     dispatch(addCustomerMongoRequest());
     try {
@@ -48,7 +51,7 @@ const addCustomerMongo = (profileObj) => {
         profilePicture: profileObj.imageUrl,
       };
       const res = await axios.post(
-        "http://localhost:8000/v1/api/customers",
+        "http://localhost:8000/v1/api/users",
         customer
       );
       console.log("response from db: ", res);
