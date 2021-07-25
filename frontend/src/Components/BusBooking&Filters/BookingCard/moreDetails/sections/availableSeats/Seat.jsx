@@ -2,7 +2,6 @@
 import seat from './Seat.module.css'
 
 const Seat = ({selected, num}) => {
-    console.log( 'seat', selected, num )
     return (
         <div  className={seat.outter}
         style={{backgroundColor : selected ? '#20bf7a' : 'white', borderColor : selected ? '#20bf7a' : '#979797'}}

@@ -5,16 +5,11 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 
-// const initDetails = {
-//     seats: [],
-//     price : 0
-// }
 
 const AvailableSeats = () => {
     const history = useHistory()
     const [ boarding, setBoarding ] = useState('Bangalore')
     const [ dropping, setDropping ] = useState('Hyderabad')
-    // const [ seatDetails, setSeatDetails ] = (initDetails)
 
     const handleSeatDetails = () => {
 

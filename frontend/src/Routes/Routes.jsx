@@ -6,6 +6,7 @@ import { BookingCard } from "../Components/BusBooking&Filters/BookingCard/Bookin
 import { Payment } from "../Components/PaymentPage/payment.jsx";
 import {Navbar} from "../Components/Navbar/Navbar.jsx"
 import { BusBookingAndFilters } from "../Components/BusBooking&Filters/BusBookingAndFilters.jsx";
+import { SuccessPage } from "../Components/success/success.jsx";
 const Routes = () => {
   return (
     <>
@@ -25,6 +26,10 @@ const Routes = () => {
         </Route>
         <Route path="/payment-page" exact>
           <Payment />
+        </Route>
+        <Route path="/success" exact>
+        <Navbar />
+          <SuccessPage/>
         </Route>
         <Route>
           <h1>Something is wrong !</h1>

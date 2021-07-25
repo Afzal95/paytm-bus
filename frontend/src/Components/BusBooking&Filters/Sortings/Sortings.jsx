@@ -13,7 +13,6 @@ const Sortings = () => {
         const newSort = [ ...initSort ]
         newSort[x] = true
         setSorting( [...newSort] )
-        console.log( x )
     }
 
     return (

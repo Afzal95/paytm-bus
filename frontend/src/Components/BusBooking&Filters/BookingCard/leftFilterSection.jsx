@@ -66,7 +66,6 @@ function LeftFilterSection(){
     return <div>
         <h2 style={{textAlign:"left",marginLeft:"10px",height:"45px"}}>Refine Results</h2>
         <hr/>
-        {/* <p style={{textAlign:"left",marginLeft:"10px",height:"45px"}}>Departure</p> */}
         <div className={classes.root}>
       <Typography style={{textAlign:"left",marginLeft:"10px",height:"45px"}} id="range-slider" gutterBottom>
         Price
@@ -76,7 +75,6 @@ function LeftFilterSection(){
         track="inverted"
         aria-labelledby="track-inverted-range-slider"
         getAriaValueText={valuetext}
-        // defaultValue={[1500, 2200]}
         marks={marks}
         onChange={handleChange}
       >3000</Slider>

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+
 const busSchema = new Schema({
   operatorName: {
     type: String,

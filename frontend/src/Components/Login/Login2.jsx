@@ -3,15 +3,12 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-// import GoogleButton from 'react-google-button'
 import { GoogleLogin } from "react-google-login";
 import { useHistory } from 'react-router';
-import { loadData, saveData } from "../../Utils/localStorage";
 import {
     Container,
     BenefitsCont,
@@ -93,9 +90,6 @@ export default function CustomizedDialogs({handleClose,open}) {
     const history = useHistory();
     
     const dispatch = useDispatch();
-    // React.useEffect(()=>{
-    //   dispatch(logout());
-    // },[])
     const currentCustomer = useSelector(
       (state) => state.authReducer.currentCustomer
     );
@@ -105,8 +99,6 @@ export default function CustomizedDialogs({handleClose,open}) {
     const isLoggedIn = useSelector(
       (state) => state.authReducer.isLoggedIn
     );
-    
-    // console.log()
   return (
     <div>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
@@ -125,7 +117,7 @@ export default function CustomizedDialogs({handleClose,open}) {
       <DialogTitle id="customized-dialog-title" onClose={handleClose}>
         </DialogTitle>
         <GoogleLogin
-                      clientId="493530183469-naj3i844vuh8ru5usav057k5kuabc3iq.apps.googleusercontent.com"
+                      clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                       onSuccess={(response) => {
                         
                         dispatch(loginSuccess(response));

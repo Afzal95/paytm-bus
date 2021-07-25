@@ -39,7 +39,6 @@ const Seats = ({deck,}) => {
       <div className={`${seat.singleCont}`}>
         {
           single.map( (item) => {
-            // return <Seat />
             return <div onClick={() => handleSingle(item.num, item.price)}><Seat {...item} /></div>
           })
         }

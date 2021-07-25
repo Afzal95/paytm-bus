@@ -6,15 +6,8 @@ import { Radio, RadioGroup } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	ageInput: {
-		// marginTop:"1%",
 		marginLeft:"3%",
 		width: "51.56px"
-	// 	width: 51.56px;
-	// background-color:#ffffff;
-	// padding: 1px 20px 1px 2px;
-	// margin-left: 3%;
-	// margin-top: 1%;
-	// border: 1px solid rgb(206, 202, 202);
 	},
   }));
 
