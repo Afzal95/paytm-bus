@@ -1,5 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import { Radio, RadioGroup } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+	ageInput: {
+		// marginTop:"1%",
+		marginLeft:"3%",
+		width: "51.56px"
+	// 	width: 51.56px;
+	// background-color:#ffffff;
+	// padding: 1px 20px 1px 2px;
+	// margin-left: 3%;
+	// margin-top: 1%;
+	// border: 1px solid rgb(206, 202, 202);
+	},
+  }));
+
 const TravelInfoCont = styled.div`
 	width: 100%;
 	margin-top: 3%;
@@ -36,6 +54,16 @@ const Input = styled.input`
 	margin-left: 3%;
 	margin-top: 1%;
 `;
+const InputAge = styled.input`
+	height: 33px;
+	width: 51.56px;
+	background-color:#ffffff;
+	padding: 1px 20px 1px 2px;
+	margin-left: 3%;
+	margin-top: 1%;
+	border: 1px solid rgb(206, 202, 202);
+
+`;
 const Select = styled.select`
 	height: 40px;
 	width: 250px;
@@ -57,7 +85,23 @@ text-align: left;
 margin-top: 10px;
 margin-left: 10px;
 `;
+const RadioButton = styled.input`
+ z-index: 1;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  margin-top: 19px;
+`;
+const RadioDiv = styled.div`
+padding: 0 0.45em;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: 19px;
+`;
 export const TravellerInformation=()=>{
+	const classes = useStyles();
 	const passangers = [{id:1,seat:'A1'},{id:2,seat:'A2'}];
     return(
         <TravelInfoCont>
@@ -65,53 +109,66 @@ export const TravellerInformation=()=>{
                 <ReviewTitle>02 Traveller Information</ReviewTitle>
             </ReviewTitleCont>
 			{
-				passangers.map(item=>
+				passangers.map((item,index)=>
 					<Logindetails key={item.id} >
-						{/* <div style={{border:"1px solid black"}}> */}
-							
-							<p>Travller {item.id}</p>
-							<Select name="gender">
-								<option value="male">Male</option>
-								<option value="female">Female</option>
-							</Select>
-							<p>Seat {item.seat}</p>
-						{/* </div> */}
+						<p style={{textAlign:"left"}}>Travller {item.id}</p>
+							<div style={{display:"flex",marginTop:"35px",marginLeft:"-70px"}}>
+							<RadioButton
+                      type="radio"
+                      name={"gender" + index}
+                      value="Male"
+                    />
+                    <RadioDiv>Male</RadioDiv>
+                    <RadioButton
+                      type="radio"
+                      name={"gender" + index}
+                      value="Female"
+                    />
+                    <RadioDiv>Female</RadioDiv>
+							</div>
 						<br />
+						<div>
 						{/* <div>aaaaa</div> */}
-						<div style={{display:"flex",border:"1px solid black"}}>
-							<Input placeholder="Full Name"></Input>
-							<Input placeholder="Age"></Input>
+						<div style={{display:"flex",marginTop:"27px",marginLeft:"20px"}}>
+						<TextField label="Full Name" required/>
+						<TextField label="Age" className={classes.ageInput} required/>
+							{/* <Input placeholder="Full Name"></Input> */}
+							{/* <InputAge placeholder="Age"/> */}
 					
-							
+							<p>Seat {item.seat}</p>
+							</div>
 						</div>
 					
 				</Logindetails>
 					)
 			}
 				
+				<div style={{textAlign:"left"}}>
 				<Para>
 				Contact Information
 
 				</Para>
-				<p>Your ticket and PNR Info will be sent to these.</p>
-				<Logindetails>
+				<p style={{marginLeft:"25px"}}>Your ticket and PNR Info will be sent to these.</p>
+				<Logindetails style={{marginLeft:"-5px"}}>
 					<Input placeholder="Email ID"></Input>
 					<Input placeholder="Mobile No."></Input>
 				</Logindetails>
-			<br />
+			{/* <br /> */}
 			
-			<br />
+			{/* <br /> */}
 				<Para>
 					<Checkbox type="checkbox"></Checkbox>
 					I agree to all the{" "}
 					<a
-						href="https://www.abhibus.com/insterms/TATA_AIG"
+						href="https://paytm.com/about-us/our-policies/#tandc"
 						style={{ color: "#00b9f5", textDecoration: "none" }}
 					>
 						terms and conditions
 					</a>
 				</Para>
 			<br />
+			
+			</div>
         </TravelInfoCont>
     )
 }

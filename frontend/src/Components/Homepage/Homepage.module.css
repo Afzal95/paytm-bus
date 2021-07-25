@@ -1,0 +1,28 @@
+ 
+  
+  
+  .arrivalDd,
+  .departureDd {
+    /* padding: 10px 0; */
+    background-color: white;
+    overflow-y: scroll;
+    height: 200px;
+    z-index: 1000;
+    position: relative;
+  }
+  .arrivalDd li,
+  .departureDd li {
+    padding: 10px 5px;
+    padding-left: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    margin-left: -40px;
+  }
+  .arrivalDd li:hover,
+  .departureDd li:hover {
+    background-color: #ddd;
+    font-weight: bold;
+    /* color: #d84f57; */
+  }
+  
+  
