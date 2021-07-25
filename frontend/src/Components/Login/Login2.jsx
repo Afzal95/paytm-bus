@@ -26,7 +26,6 @@ import {
   logout,
   addCustomerMongo,
 } from "../../Redux/auth/actions";
-import {Redirect} from 'react-router-dom'
 const styles = (theme) => ({
   root: {
     margin: 0,
@@ -94,9 +93,9 @@ export default function CustomizedDialogs({handleClose,open}) {
     const history = useHistory();
     
     const dispatch = useDispatch();
-    React.useEffect(()=>{
-      dispatch(logout());
-    },[])
+    // React.useEffect(()=>{
+    //   dispatch(logout());
+    // },[])
     const currentCustomer = useSelector(
       (state) => state.authReducer.currentCustomer
     );
@@ -107,8 +106,8 @@ export default function CustomizedDialogs({handleClose,open}) {
       (state) => state.authReducer.isLoggedIn
     );
     
-    console.log()
-  return !isAuth?(
+    // console.log()
+  return (
     <div>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
       
@@ -131,6 +130,7 @@ export default function CustomizedDialogs({handleClose,open}) {
                         
                         dispatch(loginSuccess(response));
                         dispatch(addCustomerMongo(response.profileObj));
+                        history.push("/");
                       }}
                       onFailure={(response) => {
                         dispatch(loginFailure(response));
@@ -144,5 +144,5 @@ export default function CustomizedDialogs({handleClose,open}) {
         </DialogActions>
       </Dialog>
     </div>
-  ):<Redirect to={history.push("/")}/>;
+  );
 }

@@ -7,7 +7,7 @@ const initState = {
   isAuth: isAuth,
   token:token,
   isLoggedIn: false,
-  currentCustomer: null,
+  currentCustomer: "",
   error: false,
   isLoading: false,
 };
@@ -35,7 +35,7 @@ const authReducer = (state = initState, action) => {
     case actionTypes.LOGOUT:
       saveData("auth", false)
       saveData("token", {})
-      return { ...state, isLoggedIn: false, currentCustomer: null };
+      return { ...state, isLoggedIn: false,isAuth:false,currentCustomer: "" };
 
     case actionTypes.ADD_CUSTOMER_MONGO_REQUEST:
       return { ...state, isLoading: true, error: false };

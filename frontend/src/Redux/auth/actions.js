@@ -15,7 +15,7 @@ const loginFailure = (response) => {
 };
 
 const logout = () => {
-  console.log("ajmal")
+  // console.log("ajmal")
   return {
     type: actionTypes.LOGOUT,
   };
@@ -39,8 +39,8 @@ const addCustomerMongoFailure = () => {
 };
 
 const addCustomerMongo = (profileObj) => {
-  console.log(profileObj.name)
-  console.log(profileObj.email)
+  // console.log(profileObj.name)
+  // console.log(profileObj.email)
   return async (dispatch) => {
     dispatch(addCustomerMongoRequest());
     try {
