@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const {Schema,model} = mongoose.Schema;
+const Schema = mongoose.Schema;
 const busSchema = new Schema({
   operatorName: {
     type: String,
@@ -41,4 +41,4 @@ const busSchema = new Schema({
   },
 });
 
-module.exports = model("Buses", busSchema);
+module.exports = mongoose.model("Buses", busSchema);
