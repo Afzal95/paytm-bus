@@ -46,30 +46,31 @@ export const ReviewItinerary=()=>{
             </ReviewTitleCont>
             				
 				<ReviewDetail>
-					<p>Onward 12h 50m</p>
-                    <div>
-                        <p>7:30PM</p>
-                        <p>Bengaluru</p>
-                        <p>Sun, 25 July</p>
-                        <p>Electronic City- After Electronic City Toll Plaza (Bangalore) 7303093510</p>
-                        <p>Change Boarding point</p>
+					<p style={{width:"100px"}}>Onward <br /> 12h 50m</p>
+                    <div style={{width:"200px",lineHeight:"5px",padding:"10px"}}>
+                        <div>
+                        <p style={{color:"#002e6e",fontSize:"18px",fontWeight:"600",textAlign:"left"}}>7:30PM <span style={{fontWeight:"lighter"}}>Bengaluru</span></p>
+                        </div>
+                        
+                        <p style={{fontSize:"11px",color:"#909090",margin:"0px 0px 5px",textAlign:"left"}}>Sun, 25 July</p>
+                        <p style={{textAlign:"left",color:"#00b9f5"}}>Change Boarding point</p>
                     </div>
-                    <img src="https://drg5ie3bz46tr.cloudfront.net/travel/rtravel/assets/b303754c.png" alt="arrow" />
-                    <div>
-                        <p>7:30PM</p>
-                        <p>Bengaluru</p>
-                        <p>Sun, 25 July</p>
-                        <p>Electronic City- After Electronic City Toll Plaza (Bangalore) 7303093510</p>
-                        <p>Change Boarding point</p>
+                    <img src="https://drg5ie3bz46tr.cloudfront.net/travel/rtravel/assets/b303754c.png" alt="arrow" style={{width:"11px",height:"7px",margin:"30px 5px 0px"}} />
+                    <div style={{width:"200px",lineHeight:"5px",padding:"10px"}}>
+                        <div>
+                        <p style={{color:"#002e6e",fontSize:"18px",fontWeight:"600",textAlign:"left"}}>7:30PM <span style={{fontWeight:"lighter"}}>Bengaluru</span></p>
+                        </div>
+                        
+                        <p style={{fontSize:"11px",color:"#909090",margin:"0px 0px 5px",textAlign:"left"}}>Sun, 25 July</p>
+                        <p style={{textAlign:"left",color:"#00b9f5",fontSize:"13px"}}>Change Boarding point</p>
                     </div>
-                    <div>
-                        <p>IntrCity SmartBus W</p>
-                        <p>2+1(30)AC, SLEEPER WITH WASHROOM, LUXURY</p>
+                    <div style={{width:"200px",lineHeight:"5px",padding:"10px",textAlign:"left"}}>
+                        <p style={{color:"#002e6e",fontSize:"16px",fontWeight:"600",textAlign:"left"}}>IntrCity SmartBus W</p>
                         <p>Seats: L11, L12, L15</p>
-                        <p>Cancellation Policy</p>
+                        <p style={{textAlign:"left",color:"#00b9f5",fontSize:"13px"}}>Cancellation Policy</p>
                     </div>
-                    <div>
-                        <p>Modify</p>
+                    <div style={{padding:"14px"}}>
+                        <p style={{color:"#00b9f5",fontSize:"20px"}}>Modify</p>
                     </div>
 				</ReviewDetail>
         </ReviewCont>

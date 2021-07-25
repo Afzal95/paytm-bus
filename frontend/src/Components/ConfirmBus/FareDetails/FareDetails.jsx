@@ -46,10 +46,22 @@ outline: none;
 `;
 const LeftTextHeader = styled.p`
 text-align: left;
+font-weight: 600;
+font-size: 16px;
 `;
 const TextBox = styled.div`
 display: flex;
 justify-content: space-between;
+`;
+const TotalTextBox = styled.div`
+display: flex;
+justify-content: space-between;
+background: #f5f5f5;
+color:#4a4a4a;
+font-size: 24px;
+font-weight: 600;
+margin: 30px -10px 0px;
+padding: 10px 20px;
 `;
 const LeftText = styled.p`
 text-align: left;
@@ -58,6 +70,15 @@ line-height: 0px;
 const RightText = styled.p`
 text-align: right;
 line-height: 0px;
+`;
+const HeaderText = styled.p`
+	color:#4a4a4a;
+font-size: 20px;
+font-weight: 600;
+text-align: left;
+margin-top: -5px;
+/* margin-left: 10px; */
+
 `;
 export const FareDetails=()=>{
 	const [promoCode,setPromoCode] = useState("");
@@ -79,7 +100,7 @@ export const FareDetails=()=>{
 	}
     return(
         <FareBox>
-            <p>Fare Details</p>
+            <HeaderText>Fare Details</HeaderText>
 			<hr />
 			<LeftTextHeader>ONWARD FARE</LeftTextHeader>
 			<TextBox>
@@ -95,16 +116,16 @@ export const FareDetails=()=>{
 			<RightText>₹{operatorGst.toFixed(2)}</RightText>
 			</TextBox>
 			<hr />
-			<TextBox>
+			<TotalTextBox>
 			<LeftText>Total</LeftText>
 			<RightText>₹{total.toFixed(2)}</RightText>
-			</TextBox>
+			</TotalTextBox>
 			{discount!==0&&<p style={{color:"#21C17A",fontSize:"11px"}}>Awesome!! Discount of {promoCode} is applied</p>}
 			<div style={{textAlign:"left"}}>
 				<p>Promocode</p>
 				<PromoInput type="text" placeholder="Enter Promocode" value={promoCode} readOnly/>
 				<ApplyButton onClick={applyPromoCode}>Apply</ApplyButton>
-				<div style={{border:"1px solid black"}}>
+				<div style={{background:"#f5f8f9"}}>
 					<input type="radio" id="BUS150" name="radio" value="BUS150" onChange={promoCodeOnClick}/>
 					<label>BUS150 <br />
 					Use promocode BUS150 on bus ticket bookings and get a 30% off Rapido discount voucher
