@@ -9,11 +9,11 @@ import { Footer } from "./Components/Footer/Footer.jsx";
 function App() {
   return (
     <div className="App">
-      {/* <Navbar/> */}
+      <Navbar/>
       <Homepage/> 
-      {/* <Payment /> */}
-      {/* <BusBookingAndFilters /> */}
-      {/* <Footer/> */}
+      <Payment />
+      <BusBookingAndFilters />
+      <Footer/>
      
     </div>
   );
