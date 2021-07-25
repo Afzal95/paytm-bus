@@ -1,21 +1,31 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import {Navbar} from '../Components/Navbar/Navbar.jsx';
 import {Homepage} from "../Components/Homepage/Homepage.jsx";
 import { ConfirmBus } from "../Components/ConfirmBus/ConfirmBus";
+import { BookingCard } from "../Components/BusBooking&Filters/BookingCard/BookingCard.jsx";
+import { Payment } from "../Components/PaymentPage/payment.jsx";
+import {Navbar} from "../Components/Navbar/Navbar.jsx"
 const Routes = () => {
   return (
     <>
-    <Navbar/>
       <Switch>
         <Route path="/" exact>
+        <Navbar />
           <Homepage />
         </Route>
-        <Route path="/confirm-bus" exact>
+        <Route path="/search/confirm-bus" exact>
+        <Navbar />
           <ConfirmBus />
         </Route>
+        <Route path="/search" exact>
+        <Navbar />
+          <BookingCard />
+        </Route>
+        <Route path="/payment-page" exact>
+          <Payment />
+        </Route>
         <Route>
-          <h1>Error</h1>
+          <h1>Something is wrong !</h1>
         </Route>
       </Switch>
     </>

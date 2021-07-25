@@ -84,8 +84,8 @@ export default function CustomizedDialogs({handleClose,open}) {
     
     const history = useHistory();
     const googleAuthClick = ()=>{
-        // history.push("http://localhost:7001/auth/google/")
-        // console.log("google");
+        history.push("http://localhost:8000/auth/google/")
+        // alert("google");
     }
   return (
     <div>

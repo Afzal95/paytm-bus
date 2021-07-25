@@ -393,7 +393,7 @@ export function Homepage() {
                       );
                     }
                     history.push(
-                      `/select-bus?departure=${departureTemp}&arrival=${arrivalTemp}&date=${date}`
+                      `/search?departure=${departureTemp}&arrival=${arrivalTemp}&date=${date}`
                     );
                   }}
                 >
