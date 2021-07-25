@@ -1,14 +1,21 @@
 import * as actionTypes from "./actionTypes";
+import { loadData, saveData } from "../../Utils/localStorage";
+const isAuth = loadData("auth") || false;
+const token = loadData("token") || {};
+
 const initState = {
+  isAuth: isAuth,
+  token:token,
   isLoggedIn: false,
   currentCustomer: null,
   error: false,
   isLoading: false,
 };
-
 const authReducer = (state = initState, action) => {
   switch (action.type) {
     case actionTypes.LOGIN_SUCCESS:
+      saveData("auth", true)
+      saveData("token", action.payload)
       return {
         ...state,
         isLoggedIn: true,
@@ -19,12 +26,15 @@ const authReducer = (state = initState, action) => {
           profilePicture: action.payload.imageUrl,
         },
         error: false,
+        isAuth:true
       };
 
     case actionTypes.LOGIN_FAILURE:
       return { ...state, isLoggedIn: false, error: true };
 
     case actionTypes.LOGOUT:
+      saveData("auth", false)
+      saveData("token", {})
       return { ...state, isLoggedIn: false, currentCustomer: null };
 
     case actionTypes.ADD_CUSTOMER_MONGO_REQUEST:

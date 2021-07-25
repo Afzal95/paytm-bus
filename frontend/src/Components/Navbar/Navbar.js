@@ -31,7 +31,7 @@ height:25px;
 padding: 5px 5px 5px 10px;
 border-radius:10px;
 margin-top:13px;
-width:6%;
+/* width:6%; */
 color:white;
 font-size:16px;
 font-weight:bold;
