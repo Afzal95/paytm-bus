@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const {Schema,model} = mongoose.Schema;
+const Schema = mongoose.Schema;
 const routesSchema = new Schema({
   departureLocation: {
     name: {
@@ -21,4 +21,4 @@ const routesSchema = new Schema({
   },
 });
 
-module.exports = model("Routes", routesSchema);
+module.exports = mongoose.model("Routes", routesSchema);
