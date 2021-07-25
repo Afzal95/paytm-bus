@@ -43,6 +43,10 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {OffersCar} from "./OffersCar.jsx"
 import { styled } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getRoutes } from "../../Redux/routes/action";
+import styles from "./Homepage.module.css";
 
 const Btn = styled(Button)({
   height: "45px",
@@ -50,6 +54,82 @@ const Btn = styled(Button)({
 });
 
 export function Homepage() {
+  const history = useHistory();
+  const [departure, setDeparture] = React.useState("");
+  const [arrival, setArrival] = React.useState("");
+  const [date, setDate] = React.useState("");
+  const [filteredSources, setFilteredSources] = React.useState([]);
+  const [filteredDestinations, setFilteredDestinations] = React.useState([]);
+  const [
+    displayDepartureDropdown,
+    setDisplayDepartureDropdown,
+  ] = React.useState(false);
+  const [displayArrivalDropdown, setDisplayArrivalDropdown] = React.useState(
+    false
+  );
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(getRoutes());
+  }, [dispatch]);
+
+  const routes = useSelector((state) => state.routesReducer.routes);
+  console.log("Routes are:", routes);
+
+  const onDepartureChange = (e) => {
+    let value = e.target.value;
+    setDeparture(value);
+
+    if (routes) {
+      let allSources = [];
+      routes.forEach((route) => {
+        allSources.push(route.departureLocation.name);
+        allSources = [
+          ...allSources,
+          route.departureLocation.name,
+          ...route.departureLocation.subLocations,
+        ];
+      });
+      allSources = Array.from(new Set(allSources));
+      let filteredSources = allSources.filter((source) =>
+        source.toLowerCase().includes(value.toLowerCase())
+      );
+      // console.log("Can search: ", routes.length, filteredSources);
+      if (filteredSources.length > 0 && value) {
+        console.log("hey true");
+        setFilteredSources(filteredSources);
+        setDisplayDepartureDropdown(true);
+      } else {
+        setDisplayDepartureDropdown(false);
+      }
+    }
+  };
+  const onArrivalChange = (e) => {
+    let value = e.target.value;
+    setArrival(value);
+    if (routes) {
+      let allDestinations = [];
+      routes.forEach((route) => {
+        allDestinations.push(route.arrivalLocation.name);
+        allDestinations = [
+          ...allDestinations,
+          route.arrivalLocation.name,
+          ...route.arrivalLocation.subLocations,
+        ];
+      });
+      allDestinations = Array.from(new Set(allDestinations));
+      let filteredDestinations = allDestinations.filter((source) =>
+        source.toLowerCase().includes(value.toLowerCase())
+      );
+
+      if (filteredDestinations.length > 0 && value) {
+        setFilteredDestinations(filteredDestinations);
+        setDisplayArrivalDropdown(true);
+      } else {
+        setDisplayArrivalDropdown(false);
+      }
+    }
+  };
   return (
     <>
       <Container>
@@ -209,21 +289,63 @@ export function Homepage() {
             </div>
             <SearchBus>
               <FormData>
-                <TextField
+              <div>
+            <div>
+              <TextField
                   id="filled-basic"
-                  // className={classes.inp}
                   label="From"
                   variant="outlined"
+                  value={departure}
+                  onChange={onDepartureChange}
                 />
+            </div>
+            {displayDepartureDropdown ? (
+              <div className={styles.departureDd}>
+                <ul style={{listStyleType:"none"}}>
+                  {filteredSources.map((source) => (
+                    <li
+                      onClick={() => {
+                        setDeparture(source);
+                        setDisplayDepartureDropdown(false);
+                      }}
+                    >
+                      {source}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
                 <Sync>
                   <TransDest />
                 </Sync>
-                <TextField
+                <div>
+            <div>
+            <TextField
                   id="filled-basic"
-                  // className={classes.inp}
-                  label="To"
+                  label="From"
                   variant="outlined"
+                  value={arrival}
+                  onChange={onArrivalChange}
                 />
+            </div>
+            {displayArrivalDropdown ? (
+              <div className={styles.arrivalDd}>
+                <ul style={{listStyleType:"none"}}>
+                  {filteredDestinations.map((destination) => (
+                    <li
+                      onClick={() => {
+                        setArrival(destination);
+                        setDisplayArrivalDropdown(false);
+                      }}
+                    >
+                      {destination}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
                 <TextField
                   id="filled-basic"
                   // className={classes.inp}
@@ -233,6 +355,9 @@ export function Homepage() {
                   }}
                   type="date"
                   label="Departure Date"
+                  onChange={(e) => {
+                    setDate(e.target.value);
+                  }}
                 />
                 <TextField
                   id="filled-basic"
@@ -250,6 +375,27 @@ export function Homepage() {
                   variant="contained"
                   // className={classes.button}
                   color="primary"
+                  onClick={() => {
+                    let departureTemp = departure;
+                    let arrivalTemp = arrival;
+    
+                    // Sublocation 1 (Lucknow)
+                    if (departureTemp.includes("(")) {
+                      departureTemp = departureTemp.substring(
+                        departureTemp.indexOf("(") + 1,
+                        departureTemp.indexOf(")")
+                      );
+                    }
+                    if (arrivalTemp.includes("(")) {
+                      arrivalTemp = arrivalTemp.substring(
+                        arrivalTemp.indexOf("(") + 1,
+                        arrivalTemp.indexOf(")")
+                      );
+                    }
+                    history.push(
+                      `/select-bus?departure=${departureTemp}&arrival=${arrivalTemp}&date=${date}`
+                    );
+                  }}
                 >
                   Search
                 </Btn>
