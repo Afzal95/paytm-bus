@@ -1,48 +1,57 @@
 const express = require("express");
-const passport = require("./config/passport");
 const connect = require("./config/db");
-
 const app = express();
-
+const mongoose = require("mongoose");
+const cors = require("cors");
+const { v4: uuidv4 } = require("uuid");
+require("dotenv").config();
+const stripe = require("stripe")(
+  process.env.STRIPE_SECRET_KEY
+);
+mongoose.pluralize(null);
 app.use(express.json());
+app.use(cors());
+const busRoutes = require("./routes/bus");
+const bookingRoutes = require("./routes/booking");
+const customerRoutes = require("./routes/customer");
+const routeRoutes = require("./routes/route");
 
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.serializeUser(function (user, done) {
-    done(null, "user");
+app.post("/v1/api/stripe-payments", async (req, res) => {
+  const { product, token } = req.body;
+  console.log("PRODUCT", product);
+  console.log("PRICE", product.poice);
+  const idempontencyKey = uuidv4();
+  return stripe.customers
+    .create({
+      email: token.email,
+      source: token.id,
+    })
+    .then((customer) => {
+      stripe.charges.create(
+        {
+          amount: product.price * 100,
+          currency: "inr",
+          customer: customer.id,
+          receipt_email: token.email,
+          description: `Purchase of ${product.name}`,
+        },
+        { idempontencyKey }
+      );
+    })
+    .then((result) => res.status(200).json(result))
+    .catch((err) => console.log(err));
 });
-passport.deserializeUser(function (id, done) {
-    done(null, "user");
-});
 
-app.get(
-    "/auth/google",
-    passport.authenticate("google", {
-        scope: [
-            "https://www.googleapis.com/auth/userinfo.profile",
-            "https://www.googleapis.com/auth/userinfo.email",
-        ],
-    }),
-);
+app.use(busRoutes);
+app.use(bookingRoutes);
+app.use(customerRoutes);
+app.use(routeRoutes);
 
-app.get(
-    "/auth/google/callback",
-    passport.authenticate("google", { failureRedirect: "/login" }),
-    function (req, res) {
-        const { user, token } = req.user;
-        res.status(200).json({
-            user: user,
-            token: token,
-            message: "you are authenticated",
-        });
-    },
-);
 
 const start = async () => {
 	await connect();
-	app.listen(7001, () => {
-		console.log("Listeing on port 7001");
+	app.listen(8000, () => {
+		console.log("Listening on port 8000");
 	});
 };
 
