@@ -49,11 +49,11 @@ app.use(routeRoutes);
 
 const connect = () => {
   return mongoose.connect(
-    `mongodb+srv://paytm:${process.env.PASSWORD}@paytmbusdb.mxlkx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+    `mongodb+srv://paytm:${process.env.DB_PASSWORD}@paytmbusdb.mxlkx.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
     {
-      useCreateIndex: true,
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true,
       useFindAndModify: false,
     }
   );
